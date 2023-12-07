@@ -1,0 +1,82 @@
+.sectionForm {
+    width: 80vw;
+    height: 100%;
+    padding: 1rem;
+}
+
+.input-section {
+    margin: 1.5rem 0;
+
+    &__label {
+        font-size: 1rem;
+    }
+
+    &__inputData {
+        width: 100%;
+        height: 2.5rem;
+        background-color: transparent;
+        border: 1px solid rgba(32, 32, 32, 0.348);
+        border-radius: 0.3rem;
+        margin: 0.4rem 0rem 0rem 0rem;
+        outline: none;
+        font-size: 1rem;
+        padding-left: 0.3rem;
+        
+    }
+
+    &__inputData:hover, &__inputData:valid {
+        background-color: rgba(190, 189, 189, 0.071);
+    }
+    
+    &__invalid-error {
+        color: red;
+        font-size: 0.7rem;
+    }
+}
+
+.plansSection {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0rem 0.2rem 0rem;
+
+    .descriptionPlans {
+       display: flex;
+       align-items: center;
+
+       &__selectPlan {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin: 0.5rem;
+       }
+    }
+}
+
+.buttonSection {
+    display: flex;
+    justify-content: center;
+    
+    &__submit:disabled {
+        width: 20rem;
+        height: 3rem;
+        font-size: 1.2rem;font-weight: bold;
+        color: rgba(255, 255, 255, 0.688);
+        background-color: rgba(120, 118, 118, 0.744);
+        border: none;
+        opacity: 80%;
+        border-radius: 0.5rem;
+        margin: 1.4rem 0rem;
+    }
+    
+    &__submit:valid {
+        width: 20rem;
+        height: 3rem;
+        font-size: 1.2rem;font-weight: bold;
+        color: rgb(255, 255, 255);
+        background-color: black;
+        border: none;
+        border-radius: 0.5rem;
+        margin: 1.4rem 0rem;
+    }
+
+}
+

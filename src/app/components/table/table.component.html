@@ -1,0 +1,61 @@
+<table>
+    <tr>
+        <th>Posição</th>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Email</th>
+        <th>Planos</th>
+        <th>Editar</th>
+    </tr>
+
+    <tr *ngFor="let data of inputClientTable; let id = index">
+        <td>{{ id+1 }}</td>
+        <td>{{ data.userName }}</td>
+        <td>{{ data.years }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.plans }}</td>
+        <td>
+            <i class="bi bi-trash iconsTable" (click)="deleteData(data.id)"></i>
+            <i class="bi bi-pencil-square iconsTable" (click)="editData(data.id)"></i>
+        </td>
+    </tr>
+</table> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    <tr *ngFor="let data of inputClientTable">
+    O ngFor está sendo responsavel por renderizar os dados obtidos pelo atributo (clentTable) que foi passdo por meio do Input() no component table.component, passado par o app.component.html do qual recebe os valores/dados no template e o table.component rederiza na tela os dados com o ngFor
+-->
+
+<!-- 
+    <td>{{ data.userName }}</td>
+    Responsavel por exibir na tela os dados das propiedades do formGroup
+-->
+
+<!-- <div class="card">
+    <div *ngFor="let data of inputClientTable">
+        <p>Nome {datas.userName}}</p>
+    </div>
+</div> -->
+ 
+
+

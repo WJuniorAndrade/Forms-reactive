@@ -1,0 +1,109 @@
+<body>
+    <form class="sectionForm" [formGroup]="formGroup">
+        <h1>Tabela de Sócio Torcedor</h1>
+        <div class="input-section">
+            <label for="userName" class="input-section__label">Nome</label>
+            <input type="text" id="userName" 
+            class="input-section__inputData" 
+            required 
+            placeholder="Digite seu nome" 
+            formControlName="userName"> 
+
+            <div *ngIf="formGroup.controls['userName'].invalid && formGroup.controls['userName'].touched">
+                <span *ngIf="formGroup.controls['userName']?.errors?.['required']"  class="input-section__invalid-error">*Campo obrigatório <br></span> 
+
+                <span *ngIf="formGroup.controls['userName']?.errors?.['minlength']" class="input-section__invalid-error">*Nome não possue o numero de caracteres minimos 3</span>
+
+                <span *ngIf="formGroup.controls['userName']?.errors?.['maxlength']" class="input-section__invalid-error">*Nome possue o numero de caracteres maior que 20</span> 
+            </div>
+            
+        </div>
+        
+        <div class="input-section">
+            <label for="userYears" class="input-section__label">Idade</label>
+            <input type="number" id="userYears" 
+            class="input-section__inputData" 
+            required 
+            placeholder="Digite sua idade" 
+            formControlName="years">
+
+            <div *ngIf="formGroup.controls['years'].invalid && formGroup.controls['years'].touched">
+                <span *ngIf="formGroup.controls['years']?.errors?.['required']" class="input-section__invalid-error">*Campo obrigatório <br></span>
+                
+                <span *ngIf="formGroup.controls['years']?.errors?.['min']" class="input-section__invalid-error">*Você não possui a idade minima de 18 anos</span>
+
+                <span *ngIf="formGroup.controls['years']?.errors?.['max']" class="input-section__invalid-error">*Idade incorreta</span>
+            </div>
+        </div>
+
+
+        <div class="input-section">
+            <label for="email" class="input-section__label">Email</label>
+            <input type="email" id="email" 
+            class="input-section__inputData" 
+            required 
+            placeholder="Digite seu email" 
+            formControlName="email"
+            [email]="true">
+
+            <div *ngIf="formGroup.controls['email'].invalid && formGroup.controls['email'].touched">
+                <span *ngIf="formGroup.controls['email']?.errors?.['required']" class="input-section__invalid-error">*Campo obrigatório <br> </span>
+                
+                <span *ngIf="formGroup.controls['email']?.errors?.['email']" class="input-section__invalid-error">*Email invalido</span>
+            </div>
+        </div> 
+        
+
+        <section >
+            <h2>Nossos Planos</h2>
+
+            <div class="plansSection">
+
+                <div class="descriptionPlans">
+                    <label for="diamondNation">Plano Diamante</label>
+                    <input type="radio" name="plans"
+                    id="diamondNation"
+                    class="descriptionPlans__selectPlan"
+                    value="diamond" formControlName="plans">
+                </div>
+    
+                <div class="descriptionPlans">
+                    <label for="platinumNation">Plano Platina</label>
+                    <input type="radio" name="plans"
+                    id="platinumNation" value="platinum"
+                    class="descriptionPlans__selectPlan"
+                    formControlName="plans">
+                </div>
+    
+                <div class="descriptionPlans">
+                    <label for="goldNation">Plano Ouro</label>
+                    <input type="radio" name="plans"
+                    id="goldNation" value="gold"
+                    class="descriptionPlans__selectPlan"
+                    formControlName="plans">
+                </div>
+            </div>
+
+            <div *ngIf="formGroup.controls['plans'].invalid && formGroup.controls['plans'].touched">
+                <span class="input-section__invalid-error"
+                *ngIf="formGroup.get('plans')?.errors?.['required']">*Selecione um plano</span>
+            </div>
+
+        </section>
+
+        <div class="buttonSection">
+            <button class="buttonSection__submit"
+            [disabled]="!formGroup.valid"
+            (click)="submit()"
+            >INSCREVER</button>
+        </div>
+        
+    </form>
+</body>
+
+
+
+
+
+
+            <!-- validar compos dos inputs Radio pansando o value de cada campo -->
